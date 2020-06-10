@@ -1,0 +1,11 @@
+server:
+  port: 8080
+spring:
+    datasource:
+      url: jdbc:postgresql://localhost:5432]/bank_system
+      username: postgres
+      password: admin
+    jpa:
+      show_sql: true
+      format_sql: true
+      database-platform: org.hibernate.Dialect.PostgreSQL94Dialect
