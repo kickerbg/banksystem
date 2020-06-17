@@ -2,16 +2,31 @@ package com.advanced.bank.bank.system.model;
 
 import com.advanced.bank.bank.system.model.enums.CardType;
 
+import javax.persistence.*;
+import java.beans.ConstructorProperties;
 import java.time.Instant;
 
+@Entity
+@Table(name = "physical_cards")
 public class physicalCard {
+    @Id
     private Long id;
+    @Column
     private Integer cardNumber;
+    @Column
+    @Enumerated(EnumType.STRING)
     private CardType cardType = CardType.NONE;
+    @Column
     private Instant expirationDate;
+    @Column
     private Integer cvv;
+    @Column
     private Integer pinCode;
+    @Column
+    @ManyToOne
+    @JoinColumn(name = "account_id")
     private Account account;
+    @Column
     boolean isActive = false;
 
     public Long getId() {

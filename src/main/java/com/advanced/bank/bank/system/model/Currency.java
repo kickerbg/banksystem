@@ -1,10 +1,22 @@
 package com.advanced.bank.bank.system.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "currencies")
 public class Currency {
+    @Id
     private Long id;
+    @Column
     private String name;
+    @Column
     private String iso2;
+    @Column
     private String iso3;
+    @Column
     private Integer multiplier;
 
     public Long getId() {

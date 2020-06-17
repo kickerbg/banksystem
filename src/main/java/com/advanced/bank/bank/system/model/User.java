@@ -2,21 +2,41 @@ package com.advanced.bank.bank.system.model;
 
 import com.advanced.bank.bank.system.model.enums.UserType;
 
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
+@Entity
+@Table(name = "users")
 public class User {
+    @Id
     private Long id;
+    @Column
+    @Enumerated(EnumType.STRING)
     private UserType userType;
+    @OneToMany
     private Set<Account> accounts = new HashSet<>();
+    @Column
     private String firstName;
+    @Column
     private String lastName;
+    @Column
     private String egn;
+    @Column
     private String mobileNumber;
+    @ManyToMany
+    @JoinTable(
+            name = "users_addresses",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "addresses_id")
+    )
     private Set<Address> addresses = new HashSet<>();
+    @Column
     private String email;
+    @Column
     private String password;
+    @OneToMany
+
     private Set<UserSubscription> userSubscriptions = new HashSet<>();
 
     public Long getId() {

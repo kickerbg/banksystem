@@ -14,7 +14,7 @@ public class ContractController {
     }
 
 
-    @PostMapping
+    @PutMapping
     public void updateContract(@RequestBody Contract contract) {
 
     }
