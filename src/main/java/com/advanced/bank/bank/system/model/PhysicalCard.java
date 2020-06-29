@@ -8,7 +8,7 @@ import java.time.Instant;
 
 @Entity
 @Table(name = "physical_cards")
-public class physicalCard {
+public class PhysicalCard {
     @Id
     private Long id;
     @Column
@@ -22,7 +22,6 @@ public class physicalCard {
     private Integer cvv;
     @Column
     private Integer pinCode;
-    @Column
     @ManyToOne
     @JoinColumn(name = "account_id")
     private Account account;

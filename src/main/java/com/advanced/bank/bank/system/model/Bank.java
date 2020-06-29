@@ -2,14 +2,17 @@ package com.advanced.bank.bank.system.model;
 
 import javax.persistence.*;
 
+import static javax.persistence.CascadeType.ALL;
+
 @Entity
 @Table(name = "banks")
 public class Bank {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
     private String name;
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "address_id")
     private Address address;
     @Column(name = "swift_number")

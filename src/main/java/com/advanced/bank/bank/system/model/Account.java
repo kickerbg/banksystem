@@ -16,11 +16,9 @@ public class Account {
     @JoinColumn(name = "user_id")
     private User owner;
     @Column
-
     private Long balance;
     @Column(name = "account_type")
     @Enumerated(EnumType.STRING)
-
     private AccountType accountType = AccountType.NONE;
     @ManyToOne
     @JoinColumn(name = "currency_id")
